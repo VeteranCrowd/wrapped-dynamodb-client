@@ -58,7 +58,7 @@
       "./dist/**",
       "./node_modules/**"
     ],
-    "file": "./test-setup.js",
+    "file": "./test/setup.js",
     "require": [
       "@babel/register",
       "chai-match-pattern"
