@@ -17,6 +17,7 @@ Wraps an AWS DynamoDB client to provide standard logging & services.
         * [.deleteItem(tableName, key)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteItem) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.getItem(tableName, key, [attributes])](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+getItem) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.putItem(tableName, item)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+putItem) ⇒ <code>Promise.&lt;object&gt;</code>
+        * [.query(tableName, options)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+query) ⇒ <code>Promise.&lt;object&gt;</code>
     * _table_
         * [.createTable(tableName, [options])](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+createTable) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.deleteTable(tableName)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteTable) ⇒ <code>Promise.&lt;object&gt;</code>
@@ -32,7 +33,7 @@ WrappedDynamoDbClient constructor.
 | [options] | <code>object</code> | Options. |
 | [options.logger] | <code>object</code> | Logger instance (default is [global console object](https://nodejs.org/api/console.html#class-console)). Must have info, error & debug methods |
 | [options.logInternals] | <code>boolean</code> | Log AWS client internals (default is false). |
-| [options.config] | <code>object</code> | [DynamoDBClientConfig](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/dynamodbclientconfig.html). |
+| [options.config] | <code>object</code> | [DynamoDBClientConfig](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/dynamodbclientconfig.html) object. |
 
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteItem"></a>
 
@@ -40,7 +41,7 @@ WrappedDynamoDbClient constructor.
 Delete an item from a DynamoDB table.
 
 **Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
-**Returns**: <code>Promise.&lt;object&gt;</code> - [WaiterResult](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/globals.html#waiterresult)  
+**Returns**: <code>Promise.&lt;object&gt;</code> - [WaiterResult](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/globals.html#waiterresult) object.  
 **Category**: item  
 
 | Param | Type | Description |
@@ -54,7 +55,7 @@ Delete an item from a DynamoDB table.
 Get an item from a DynamoDB table.
 
 **Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
-**Returns**: <code>Promise.&lt;object&gt;</code> - - [GetItemCommandOutput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/getitemcommandoutput.html).  
+**Returns**: <code>Promise.&lt;object&gt;</code> - - [GetItemCommandOutput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/getitemcommandoutput.html) object.  
 **Category**: item  
 
 | Param | Type | Description |
@@ -69,7 +70,7 @@ Get an item from a DynamoDB table.
 Put an item into a DynamoDB table.
 
 **Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
-**Returns**: <code>Promise.&lt;object&gt;</code> - - [PutItemCommandOutput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/putitemcommandoutput.html).  
+**Returns**: <code>Promise.&lt;object&gt;</code> - - [PutItemCommandOutput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/putitemcommandoutput.html) object.  
 **Category**: item  
 
 | Param | Type | Description |
@@ -77,19 +78,33 @@ Put an item into a DynamoDB table.
 | tableName | <code>string</code> | Table name. |
 | item | <code>object</code> | Item object. |
 
+<a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+query"></a>
+
+### wrappedDynamoDbClient.query(tableName, options) ⇒ <code>Promise.&lt;object&gt;</code>
+Query items from a DynamoDB table.
+
+**Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
+**Returns**: <code>Promise.&lt;object&gt;</code> - [QueryCommandOutput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/querycommandoutput.html) object.  
+**Category**: item  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tableName | <code>string</code> | Table name. |
+| options | <code>object</code> | [QueryCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/querycommandinput.html) object. |
+
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+createTable"></a>
 
 ### wrappedDynamoDbClient.createTable(tableName, [options]) ⇒ <code>Promise.&lt;object&gt;</code>
 Create a DynamoDB table.
 
 **Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
-**Returns**: <code>Promise.&lt;object&gt;</code> - [WaiterResult](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/globals.html#waiterresult)  
+**Returns**: <code>Promise.&lt;object&gt;</code> - [WaiterResult](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/globals.html#waiterresult) object.  
 **Category**: table  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | tableName | <code>string</code> | Table name. |
-| [options] | <code>object</code> | [CreateTableCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/createtablecommandinput.html). |
+| [options] | <code>object</code> | [CreateTableCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/createtablecommandinput.html) object. |
 
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteTable"></a>
 
