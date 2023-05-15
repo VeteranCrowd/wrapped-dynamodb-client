@@ -62,7 +62,7 @@ Get an item from a DynamoDB table.
 | --- | --- | --- |
 | tableName | <code>string</code> | Table name. |
 | key | <code>object</code> | Item object (only the key is required). |
-| [attributes] | <code>string</code> | Comma-delimited list of attributes to retrieve. |
+| [attributes] | <code>string</code> \| <code>Array.&lt;string&gt;</code> | Comma-delimited list or string array of attributes to retrieve. |
 
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+putItem"></a>
 
