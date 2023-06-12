@@ -79,7 +79,7 @@
     "build": "babel lib -d dist/default/lib --delete-dir-on-start --config-file ./dist/default/.babelrc",
     "doc": "jsdoc2md -c doc/jsdoc.config.json -f lib/**/*.* -t doc/api-template.hbs > doc/2-api.jsdoc2.md && concat-md doc --hide-anchor-links > README.md",
     "lint": "eslint lib/**",
-    "prerelease": "npm run lint && npm run test && npm run doc",
+    "prerelease": "npm run lint && npm run test && npm run build && npm run doc",
     "release": "release-it",
     "test": "getdotenv -c \"mocha\" -p ./ ./env -d dev -y ./env/dynamic.js"
   },
