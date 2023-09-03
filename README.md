@@ -15,14 +15,17 @@ Wraps an AWS DynamoDB client to provide standard logging & services.
     * [new exports.WrappedDynamoDbClient([options])](#new_module_wrapped-dynamodb-client.WrappedDynamoDbClient_new)
     * _item_
         * [.deleteItem(tableName, key)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteItem) ⇒ <code>Promise.&lt;object&gt;</code>
-        * [.deleteItems(tableName, keys)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteItems) ⇒ <code>Promise.&lt;Array&gt;</code>
+        * [.deleteItems(tableName, keys)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteItems) ⇒ <code>Promise.&lt;number&gt;</code>
         * [.getItem(tableName, key, [attributes])](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+getItem) ⇒ <code>Promise.&lt;object&gt;</code>
+        * [.purgeItems(tableName, keys)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+purgeItems) ⇒ <code>Promise.&lt;number&gt;</code>
         * [.putItem(tableName, item)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+putItem) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.putItems(tableName, items)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+putItems) ⇒ <code>Promise.&lt;Array&gt;</code>
         * [.query(tableName, options)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+query) ⇒ <code>Promise.&lt;object&gt;</code>
+        * [.scan(tableName, options)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+scan) ⇒ <code>Promise.&lt;object&gt;</code>
     * _table_
         * [.createTable(tableName, [options])](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+createTable) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.deleteTable(tableName)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteTable) ⇒ <code>Promise.&lt;object&gt;</code>
+        * [.describeTable(tableName)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+describeTable) ⇒ <code>Promise.&lt;object&gt;</code>
 
 <a name="new_module_wrapped-dynamodb-client.WrappedDynamoDbClient_new"></a>
 
@@ -53,11 +56,11 @@ Delete an item from a DynamoDB table.
 
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteItems"></a>
 
-### wrappedDynamoDbClient.deleteItems(tableName, keys) ⇒ <code>Promise.&lt;Array&gt;</code>
+### wrappedDynamoDbClient.deleteItems(tableName, keys) ⇒ <code>Promise.&lt;number&gt;</code>
 Delete multiple items from a DynamoDB table.
 
 **Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
-**Returns**: <code>Promise.&lt;Array&gt;</code> - Array of responses from chunked batchWrite operations.  
+**Returns**: <code>Promise.&lt;number&gt;</code> - Array of responses from chunked batchWrite operations.  
 **Category**: item  
 
 | Param | Type | Description |
@@ -79,6 +82,20 @@ Get an item from a DynamoDB table.
 | tableName | <code>string</code> | Table name. |
 | key | <code>object</code> | Item object (only the key is required). |
 | [attributes] | <code>string</code> \| <code>Array.&lt;string&gt;</code> | Comma-delimited list or string array of attributes to retrieve. |
+
+<a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+purgeItems"></a>
+
+### wrappedDynamoDbClient.purgeItems(tableName, keys) ⇒ <code>Promise.&lt;number&gt;</code>
+Purge all items from a DynamoDB table.
+
+**Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
+**Returns**: <code>Promise.&lt;number&gt;</code> - Total items purged from table.  
+**Category**: item  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tableName | <code>string</code> | Table name. |
+| keys | <code>Array.&lt;string&gt;</code> | Item keys. |
 
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+putItem"></a>
 
@@ -122,6 +139,20 @@ Query items from a DynamoDB table.
 | tableName | <code>string</code> | Table name. |
 | options | <code>object</code> | [QueryCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/querycommandinput.html) object. |
 
+<a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+scan"></a>
+
+### wrappedDynamoDbClient.scan(tableName, options) ⇒ <code>Promise.&lt;object&gt;</code>
+Scan items from a DynamoDB table.
+
+**Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
+**Returns**: <code>Promise.&lt;object&gt;</code> - [ScanCommandOutput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/scancommandoutput.html) object.  
+**Category**: item  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tableName | <code>string</code> | Table name. |
+| options | <code>object</code> | [ScanCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/scancommandinput.html) object. |
+
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+createTable"></a>
 
 ### wrappedDynamoDbClient.createTable(tableName, [options]) ⇒ <code>Promise.&lt;object&gt;</code>
@@ -143,6 +174,19 @@ Delete a DynamoDB table.
 
 **Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
 **Returns**: <code>Promise.&lt;object&gt;</code> - - Deletion status  
+**Category**: table  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tableName | <code>string</code> | Table name. |
+
+<a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+describeTable"></a>
+
+### wrappedDynamoDbClient.describeTable(tableName) ⇒ <code>Promise.&lt;object&gt;</code>
+Describe a DynamoDB table.
+
+**Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
+**Returns**: <code>Promise.&lt;object&gt;</code> - - [TableDescription](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/tabledescription-5.html)}  
 **Category**: table  
 
 | Param | Type | Description |
