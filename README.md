@@ -22,6 +22,8 @@ Wraps an AWS DynamoDB client to provide standard logging & services.
         * [.putItems(tableName, items)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+putItems) ⇒ <code>Promise.&lt;Array&gt;</code>
         * [.query(tableName, options)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+query) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.scan(tableName, options)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+scan) ⇒ <code>Promise.&lt;object&gt;</code>
+        * [.transactDeleteItems(tableName, keys)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+transactDeleteItems) ⇒ <code>Promise.&lt;Array&gt;</code>
+        * [.transactPutItems(tableName, items)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+transactPutItems) ⇒ <code>Promise.&lt;Array&gt;</code>
     * _table_
         * [.createTable(tableName, [options])](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+createTable) ⇒ <code>Promise.&lt;object&gt;</code>
         * [.deleteTable(tableName)](#module_wrapped-dynamodb-client.WrappedDynamoDbClient+deleteTable) ⇒ <code>Promise.&lt;object&gt;</code>
@@ -152,6 +154,34 @@ Scan items from a DynamoDB table.
 | --- | --- | --- |
 | tableName | <code>string</code> | Table name. |
 | options | <code>object</code> | [ScanCommandInput](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/scancommandinput.html) object. |
+
+<a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+transactDeleteItems"></a>
+
+### wrappedDynamoDbClient.transactDeleteItems(tableName, keys) ⇒ <code>Promise.&lt;Array&gt;</code>
+Delete multiple items from a DynamoDB table as a single transaction.
+
+**Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
+**Returns**: <code>Promise.&lt;Array&gt;</code> - Array of responses from chunked batchWrite operations.  
+**Category**: item  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tableName | <code>string</code> | Table name. |
+| keys | <code>Array.&lt;object&gt;</code> | Array of item keys. |
+
+<a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+transactPutItems"></a>
+
+### wrappedDynamoDbClient.transactPutItems(tableName, items) ⇒ <code>Promise.&lt;Array&gt;</code>
+Put multiple items into a DynamoDB table as a single transaction.
+
+**Kind**: instance method of [<code>WrappedDynamoDbClient</code>](#module_wrapped-dynamodb-client.WrappedDynamoDbClient)  
+**Returns**: <code>Promise.&lt;Array&gt;</code> - Array of responses from chunked batchWrite operations.  
+**Category**: item  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tableName | <code>string</code> | Table name. |
+| items | <code>Array.&lt;object&gt;</code> | Array of item objects. |
 
 <a name="module_wrapped-dynamodb-client.WrappedDynamoDbClient+createTable"></a>
 
