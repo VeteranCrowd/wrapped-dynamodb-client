@@ -26,6 +26,7 @@
     "jsdoc/tag-lines": "off",
     "mocha/no-skipped-tests": "off",
     "mocha/no-top-level-hooks": "off",
+    "mocha/no-skipped-tests": "off",
     "yml/plain-scalar": "off",
     "yml/quotes": "off"
   },
