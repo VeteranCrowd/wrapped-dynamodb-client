@@ -19,8 +19,8 @@
     "logging"
   ],
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.484.0",
-    "@aws-sdk/lib-dynamodb": "^3.484.0",
+    "@aws-sdk/client-dynamodb": "^3.490.0",
+    "@aws-sdk/lib-dynamodb": "^3.490.0",
     "aws-xray-sdk": "^3.5.3",
     "lodash": "^4.17.21"
   },
@@ -29,10 +29,10 @@
     "@babel/core": "^7.23.7",
     "@babel/eslint-parser": "^7.23.3",
     "@babel/plugin-syntax-import-assertions": "^7.23.3",
-    "@babel/preset-env": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
     "@babel/register": "^7.23.7",
-    "@types/node": "^20.10.6",
-    "@veterancrowd/aws-cli": "^4.5.12",
+    "@types/node": "^20.11.3",
+    "@veterancrowd/aws-cli": "^4.6.1",
     "auto-changelog": "^2.4.0",
     "babel-plugin-lodash": "^3.3.4",
     "chai": "^5.0.0",
@@ -44,7 +44,7 @@
     "eslint-plugin-mocha": "^10.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "jsdoc-to-markdown": "^8.0.0",
-    "lefthook": "^1.5.5",
+    "lefthook": "^1.5.6",
     "mocha": "^10.2.0",
     "nanoid": "^5.0.4",
     "release-it": "^17.0.1",
