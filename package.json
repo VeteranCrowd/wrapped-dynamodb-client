@@ -2,7 +2,7 @@
   "name": "@veterancrowd/wrapped-dynamodb-client",
   "version": "1.6.23",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
@@ -77,7 +77,8 @@
       "commitMessage": "chore: release v${version}"
     },
     "github": {
-      "release": true
+      "release": true,
+      "skipChecks": true
     },
     "hooks": {
       "after:init": [
