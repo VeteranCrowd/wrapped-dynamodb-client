@@ -62,7 +62,6 @@
       "./dist/**",
       "./node_modules/**"
     ],
-    "file": "./test/setup.js",
     "require": [
       "@babel/register",
       "chai-match-pattern"
@@ -102,7 +101,7 @@
     "lint": "eslint lib/**",
     "release": "vc -c \"release-it\"",
     "release:pre": "vc -c \"release-it --no-git.requireBranch --github.prerelease --preRelease\"",
-    "test": "vc -c \"mocha\""
+    "test": "vc aws -c \"mocha\""
   },
   "type": "module"
 }
