@@ -1,6 +1,6 @@
 {
   "name": "@veterancrowd/wrapped-dynamodb-client",
-  "version": "1.8.1",
+  "version": "1.9.0-alpha.1",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -100,7 +100,10 @@
     "knip": "knip",
     "lint": "eslint lib/**",
     "release": "vc -c \"release-it\"",
-    "release:pre": "vc -c \"release-it --no-git.requireBranch --github.prerelease --preRelease\"",
+    "release:pre": "vc -c \"release-it --no-git.requireBranch --github.prerelease --preRelease=alpha\"",
+    "release:pre-minor": "vc -c \"release-it minor --no-git.requireBranch --github.prerelease --preRelease=alpha\"",
+    "release:pre-patch": "vc -c \"release-it patch --no-git.requireBranch --github.prerelease --preRelease=alpha\"",
+    "release:print-next-version": "release-it --release-version --no-git.requireBranch --no-git.requireUpstream --no-git.requireCleanWorkingDir --no-hooks",
     "test": "vc aws -c \"mocha\""
   },
   "type": "module"
